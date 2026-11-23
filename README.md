@@ -92,3 +92,20 @@ MYSQL_DATABASE=veterinaria_sanmarcos
 JWT_SECRET=<clave_secreta_jwt>
 FRONTEND_ORIGINS=[http://veterinaria-sanmarcos-front-ev3.s3-website-us-east-1.amazonaws.com](http://veterinaria-sanmarcos-front-ev3.s3-website-us-east-1.amazonaws.com)
 GATEWAY_URL=[http://13.221.202.90:8080](http://13.221.202.90:8080)
+
+🚀 Despliegue y Ejecución con Docker
+1. Clonar el repositorio e ingresar al directorio del backend.
+
+2. Configurar el archivo .env con las credenciales correspondientes.
+
+3. Construir y levantar los contenedores en segundo plano:
+
+docker compose up -d --build
+
+1. Verificar el estado de los contenedores:
+
+docker compose ps
+
+
+
+
