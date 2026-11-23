@@ -57,5 +57,67 @@ Debe estar iniciado en `http://localhost:8080` antes de abrir el frontend.
 
 El manual de usuario está en `docs/`.
 
+# Veterinaria San Marcos — Frontend Web(S3)
+
+Aplicación web desarrollada en **React + Vite** para la gestión y tienda online de **Veterinaria San Marcos**, desplegada como sitio web estático en **AWS S3** y conectada a los microservicios en **AWS EC2**.
+
+---
+
+## 🌐 Enlaces de Producción (AWS)
+
+* **Aplicación Web (AWS S3):** `http://veterinaria-sanmarcos-front-ev3.s3-website-us-east-1.amazonaws.com`
+* **Backend API / Swagger (AWS EC2):** `http://13.221.202.90:8080/swagger-ui/index.html`
+
+> **Nota de acceso:** La aplicación utiliza protocolo `HTTP`. Si el navegador redirige automáticamente a `HTTPS`, ingresar explícitamente usando `http://`.
+
+---
+
+## 🏗️ Arquitectura Desplegada
+
+* **Alojamiento:** **AWS S3** (`us-east-1`) configurado con *Static Website Hosting* y política pública de lectura (`s3:GetObject`).
+* **Enrutamiento SPA:** Configurado con `index.html` como documento de índice y de error para soportar navegación directa con React Router.
+* **Comunicación:** Consumo de API REST a través del API Gateway en EC2 (`http://13.221.202.90:8080/api/v1`).
+
+---
+
+## 🔑 Credenciales de Prueba
+
+El sistema cuenta con roles preconfigurados para validar los distintos flujos de la plataforma:
+
+| Rol | Contraseña de Prueba | Acceso |
+| :--- | :--- | :--- |
+| **Administrador** | `Admin1234` | Dashboard, gestión de productos, usuarios, pedidos, citas y mensajes |
+| **Vendedor** | `Vende1234` | Gestión de ventas, pedidos y atención |
+| **Cliente** | `Cliente123` | Catálogo, carrito de compras, solicitud de citas e historial |
+
+---
+
+## ⚙️ Variables de Entorno
+
+Crear un archivo `.env.production` en la raíz del proyecto antes de compilar para producción:
+
+```env
+VITE_API_URL=[http://13.221.202.90:8080/api/v1](http://13.221.202.90:8080/api/v1)
+
+🛠️ Instalación, Compilación y Despliegue en S3
+1. Instalar dependencias:
+
+npm install
+
+---
+2. Ejecutar en modo desarrollo local:
+
+npm run dev
+
+---
+
+3. Compilar archivos estáticos para producción (genera la carpeta dist/):
+
+npm run build
+
+---
+
+
+
 
 
