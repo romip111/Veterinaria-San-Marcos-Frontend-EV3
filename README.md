@@ -57,55 +57,5 @@ Debe estar iniciado en `http://localhost:8080` antes de abrir el frontend.
 
 El manual de usuario está en `docs/`.
 
-# Veterinaria San Marcos — Backend (Microservicios)
-
-Backend desarrollado con **Spring Boot** bajo una arquitectura de microservicios para la plataforma web **Veterinaria San Marcos**, desplegado en **AWS EC2** mediante contenedores Docker.
-
----
-
-## 🌐 Enlaces de Producción (AWS)
-
-* **API Gateway (Base URL):** `http://13.221.202.90:8080/api/v1`
-* **Documentación Interactiva (Swagger UI):** `http://13.221.202.90:8080/swagger-ui/index.html`
-* **Frontend Conectado (AWS S3):** `http://veterinaria-sanmarcos-front-ev3.s3-website-us-east-1.amazonaws.com`
-
----
-
-## 🏗️ Arquitectura Desplegada
-
-* **Infraestructura:** Instancia **AWS EC2** (`m7i-flex.large`, Ubuntu) en la región `us-east-1` con grupo de seguridad habilitado en el puerto `8080`.
-* **Orquestación:** **Docker** y **Docker Compose** para el despliegue unificado de los servicios.
-* **Servicios:**
-  * **API Gateway:** Enrutamiento centralizado y control de políticas **CORS** hacia el bucket S3 del frontend.
-  * **Microservicios Spring Boot:** Gestión de autenticación/usuarios, catálogo de productos/servicios, citas médicas, pedidos y mensajes.
-  * **Base de Datos:** **MySQL** contenedorizado con persistencia en volúmenes Docker.
-
----
-
-## ⚙️ Variables de Entorno (`.env`)
-
-Para ejecutar el proyecto en un entorno local o en un nuevo servidor, crea un archivo `.env` en la raíz del backend (basado en `.env.example`) con las siguientes variables principales:
-
-```env
-MYSQL_ROOT_PASSWORD=<clave_root_mysql>
-MYSQL_DATABASE=veterinaria_sanmarcos
-JWT_SECRET=<clave_secreta_jwt>
-FRONTEND_ORIGINS=[http://veterinaria-sanmarcos-front-ev3.s3-website-us-east-1.amazonaws.com](http://veterinaria-sanmarcos-front-ev3.s3-website-us-east-1.amazonaws.com)
-GATEWAY_URL=[http://13.221.202.90:8080](http://13.221.202.90:8080)
-
-🚀 Despliegue y Ejecución con Docker
-1. Clonar el repositorio e ingresar al directorio del backend.
-
-2. Configurar el archivo .env con las credenciales correspondientes.
-
-3. Construir y levantar los contenedores en segundo plano:
-
-docker compose up -d --build
-
-1. Verificar el estado de los contenedores:
-
-docker compose ps
-
-
 
 
